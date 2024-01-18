@@ -1,9 +1,22 @@
-process1 = "CPU(48);IO1(14);CPU(24);IO2(16);CPU(60);IO2(20);CPU(48);IO1(12);CPU(24);IO2(18)".split(';')
-process2 = "CPU(2);IO2(20);CPU(6);IO1(10);CPU(10);IO2(10);CPU(6);IO1(10)".split(";")
-process3 = "CPU(4);IO2(16);CPU(4);IO2(16);CPU(10);IO2(14);CPU(4);IO1(12);CPU(6);IO2(18);CPU(6);IO2(16);CPU(10);IO2(16)".split(";")
-process4 = "CPU(2);IO1(10);CPU(2);IO2(18);CPU(2);IO2(16);CPU(8);IO2(18)".split(";")
-process5 = "CPU(12);IO1(14);CPU(12);IO2(12);CPU(36);IO1(10);CPU(36);IO2(16)".split(";")
-process6 = "CPU(4);IO2(16);CPU(2);IO2(18);CPU(6);IO1(12);CPU(10);IO1(18);CPU(4);IO1(18)".split(";")
+pstr1 = "CPU(48);IO1(14);CPU(24);IO2(16);CPU(60);IO2(20);CPU(48);IO1(12);CPU(24);IO2(18);"
+pstr2 = "CPU(2);IO2(20);CPU(6);IO1(10);CPU(10);IO2(10);CPU(6);IO1(10);"
+pstr3 = "CPU(4);IO2(16);CPU(4);IO2(16);CPU(10);IO2(14);CPU(4);IO1(12);CPU(6);IO2(18);CPU(6);IO2(16);CPU(10);IO2(16);"
+pstr4 = "CPU(2);IO1(10);CPU(2);IO2(18);CPU(2);IO2(16);CPU(8);IO2(18);"
+pstr5 = "CPU(12);IO1(14);CPU(12);IO2(12);CPU(36);IO1(10);CPU(36);IO2(16);"
+pstr6 = "CPU(4);IO2(16);CPU(2);IO2(18);CPU(6);IO1(12);CPU(10);IO1(18);CPU(4);IO1(18);"
+pstr1 = pstr1[:-1]
+pstr2 = pstr2[:-1]
+pstr3 = pstr3[:-1]
+pstr4 = pstr4[:-1]
+pstr5 = pstr5[:-1]
+pstr6 = pstr6[:-1]
+
+process1 = pstr1.split(';')
+process2 = pstr2.split(";")
+process3 = pstr3.split(";")
+process4 = pstr4.split(";")
+process5 = pstr5.split(";")
+process6 = pstr6.split(";")
 
 # process number, interface, time to execute, isRunning, isQueued
 process1 = list(map(lambda x : [1, x[0:3], int(x[4:-1]), False, False], process1))
@@ -130,12 +143,12 @@ for i in range(len(CPUs[0])):
 
 # ------------------------stats-------------------------------
 
-process1 = "CPU(48);IO1(14);CPU(24);IO2(16);CPU(60);IO2(20);CPU(48);IO1(12);CPU(24);IO2(18)".split(';')
-process2 = "CPU(2);IO2(20);CPU(6);IO1(10);CPU(10);IO2(10);CPU(6);IO1(10)".split(";")
-process3 = "CPU(4);IO2(16);CPU(4);IO2(16);CPU(10);IO2(14);CPU(4);IO1(12);CPU(6);IO2(18);CPU(6);IO2(16);CPU(10);IO2(16)".split(";")
-process4 = "CPU(2);IO1(10);CPU(2);IO2(18);CPU(2);IO2(16);CPU(8);IO2(18)".split(";")
-process5 = "CPU(12);IO1(14);CPU(12);IO2(12);CPU(36);IO1(10);CPU(36);IO2(16)".split(";")
-process6 = "CPU(4);IO2(16);CPU(2);IO2(18);CPU(6);IO1(12);CPU(10);IO1(18);CPU(4);IO1(18)".split(";")
+process1 = pstr1.split(';')
+process2 = pstr2.split(";")
+process3 = pstr3.split(";")
+process4 = pstr4.split(";")
+process5 = pstr5.split(";")
+process6 = pstr6.split(";")
 
 # process number, interface, time to execute, isRunning, isQueued
 process1 = list(map(lambda x : [1, x[0:3], int(x[4:-1]), False, False], process1))
