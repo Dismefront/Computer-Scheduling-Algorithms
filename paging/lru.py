@@ -6,7 +6,7 @@ limit_frames = 3
 
 swap_cnt = 0
 
-def exists(arr: [], el: int) -> bool:
+def address(arr: [], el: int) -> bool:
     for i in range(len(arr)):
         if arr[i][0] == el:
             arr[i][1] = 0
@@ -35,14 +35,13 @@ def add_to_ram(element):
 
 
 for i in range(len(order)):
+    if address(ram_frames, order[i]):
+        print_state(i, ram_frames, [order[i]])
+        continue
     if len(ram_frames) < limit_frames:
         add_to_ram(order[i])
         swap_cnt += 1
         print_state(i, ram_frames, [order[i]], el_in=[order[i]])
-        continue
-    if exists(ram_frames, order[i]):
-        print_state(i, ram_frames, [order[i]])
-        continue
     else:
         to_remove = find_lru_el(ram_frames)
         ram_frames.remove(to_remove)

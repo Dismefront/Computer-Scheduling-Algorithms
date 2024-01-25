@@ -6,26 +6,19 @@ limit_frames = 3
 
 swap_cnt = 0
 
-def exists(arr: [], el: int) -> bool:
-    for i in arr:
-        if i == el:
-            return True
-    return False
-
 def print_state(i: int, arr: [], el_queued: [], el_in: [] = [], el_out: [] = []):
     i += 1
     print(f"{i})\t {el_queued} \t--->\t {arr}, \tin: {el_in}, out: {el_out}")
 
 
 for i in range(len(order)):
+    if order[i] in ram_frames:
+        print_state(i, ram_frames, [order[i]])
+        continue
     if len(ram_frames) < limit_frames:
         ram_frames.append(order[i])
         print_state(i, ram_frames, [order[i]], el_in=[order[i]])
         swap_cnt += 1
-        continue
-    if exists(ram_frames, order[i]):
-        print_state(i, ram_frames, [order[i]])
-        continue
     else:
         to_remove = ram_frames.pop(0)
         ram_frames.append(order[i])
